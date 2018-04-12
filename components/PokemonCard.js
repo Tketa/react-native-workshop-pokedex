@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     padding: 16,
+    margin: 8,
     borderRadius: 2,
   },
   image: {

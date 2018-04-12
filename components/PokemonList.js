@@ -10,9 +10,10 @@ import PokemonCard from './PokemonCard';
 
 
 const PokemonList = ({ pokemons }) => (
-  <View>
+  <View style={{ flexDirection: 'row' }}>
     <FlatList
       data={pokemons}
+      numColumns={2}
       renderItem={({ item }) => <PokemonCard pokemon={item} />}
       keyExtractor={(item, index) => item.id.toString()}
     />
