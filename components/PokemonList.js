@@ -10,7 +10,7 @@ import PokemonCard from './PokemonCard';
 
 
 const PokemonList = ({ pokemons }) => (
-  <View style={{ flexDirection: 'row' }}>
+  <View style={{ flexDirection: 'row', flex: 1 }}>
     <FlatList
       data={pokemons}
       numColumns={2}
