@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
 import sprites from '../data/sprites';
+import colors from '../data/colors';
 
 const styles = StyleSheet.create({
   block: {
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
 const PokemonCard = (props) => (
   <View
     activeOpacity={0.7}
-    style={[styles.block, { backgroundColor: '#bbbbbb' }]}
+    style={[styles.block, { backgroundColor: colors[props.pokemon.types[0].toLowerCase()] }]}
   >
     <Text style={[styles.index, styles.subtitle]}>#{props.pokemon.id}</Text>
     <Image source={sprites[props.pokemon.id - 1]} style={styles.image} />
