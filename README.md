@@ -44,3 +44,9 @@ git checkout 3-grid-display
 ```
 git checkout 4-add-search
 ```
+
+## Replace Pokemon Sprite by an Image on the phone
+
+```
+git checkout 5-change-image
+```
