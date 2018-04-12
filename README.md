@@ -1,6 +1,8 @@
 # React-Native Workshop Pokedex
 30 min workshop to build a basic Pokedex to show the power of React-Native
 
+Many thanks to https://github.com/satya164/PocketGear for the UX/UI and some of the code in this workshop.
+
 ## Steps
 
 Clone this repository on your local machine
