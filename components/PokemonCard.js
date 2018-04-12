@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
+import { ImagePicker } from 'expo';
 
 import sprites from '../data/sprites';
 import colors from '../data/colors';
@@ -16,6 +17,7 @@ const styles = StyleSheet.create({
   },
   image: {
     margin: 16,
+    width: 72,
     height: 72,
     resizeMode: 'contain',
   },
@@ -39,16 +41,36 @@ const styles = StyleSheet.create({
   },
 });
 
-const PokemonCard = (props) => (
-  <View
-    activeOpacity={0.7}
-    style={[styles.block, { backgroundColor: colors[props.pokemon.types[0].toLowerCase()] }]}
-  >
-    <Text style={[styles.index, styles.subtitle]}>#{props.pokemon.id}</Text>
-    <Image source={sprites[props.pokemon.id - 1]} style={styles.image} />
-    <Text style={styles.title}>{props.pokemon.name}</Text>
-  </View>
-)
+class PokemonCard extends Component {
+  state = {
+    image: null,
+  };
+
+  _pickImage = async() => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      aspect: [4, 3],
+    });
+
+    if (!result.cancelled) {
+      this.setState({ image: result.uri });
+    }
+  }
+   
+  render() {
+    const sprite = this.state.image ? { uri: this.state.image } : sprites[this.props.pokemon.id - 1];
+
+    return (<TouchableOpacity
+      activeOpacity={0.7}
+      onPress={this._pickImage}
+      style={[styles.block, { backgroundColor: colors[this.props.pokemon.types[0].toLowerCase()] }]}
+    >
+      <Text style={[styles.index, styles.subtitle]}>#{this.props.pokemon.id}</Text>
+      <Image source={sprite} style={styles.image} />
+      <Text style={styles.title}>{this.props.pokemon.name}</Text>
+    </TouchableOpacity>)
+  }
+}
 
 
 PokemonCard.propTypes = {
