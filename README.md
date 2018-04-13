@@ -11,9 +11,16 @@ Clone this repository on your local machine
 git clone https://github.com/Tketa/react-native-workshop-pokedex.git
 ```
 
-And open the project in Expo. To do that, download the Expo XDE and open the project.
+Install the dependencies
 
-You should see the base Expo app. We will build from there.
+```
+cd react-native-workshop-pokedex
+npm install
+```
+
+And open the project in Expo XDE.
+
+You should see the base Expo app (just a blank screen saying "Open up App.js to start working on your app!"). We will build from there.
 
 Before we start, fetch all the branches of the project:
 
